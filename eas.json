@@ -1,0 +1,23 @@
+{
+  "build": {
+    "preview": {
+      "distribution": "internal",
+      "channel": "preview",
+      "env": {
+        "STORYBOOK_ENABLED": "false"
+      }
+    },
+    "production": {
+      "channel": "production",
+      "env": {
+        "STORYBOOK_ENABLED": "false"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  },
+  "cli": {
+    "version": ">= 0.51.0"
+  }
+}

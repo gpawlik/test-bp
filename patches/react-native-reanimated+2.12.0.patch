@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-reanimated/android/build.gradle b/node_modules/react-native-reanimated/android/build.gradle
+index a38b2a5..f54a321 100644
+--- a/node_modules/react-native-reanimated/android/build.gradle
++++ b/node_modules/react-native-reanimated/android/build.gradle
+@@ -104,7 +104,7 @@ def resolveReactNativeDirectory() {
+         return reactNativeFromProjectNodeModules
+     }
+     
+-    def reactNativeFromNodeModulesWithReanimated = file("${projectDir}/../../react-native")
++    def reactNativeFromNodeModulesWithReanimated = file("${rootProject.projectDir}/../../../node_modules/react-native")
+     if (reactNativeFromNodeModulesWithReanimated.exists()) {
+         return reactNativeFromNodeModulesWithReanimated
+     }

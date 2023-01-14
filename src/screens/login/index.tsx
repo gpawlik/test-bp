@@ -65,7 +65,7 @@ export const Login = () => {
   );
 
   return (
-    <>
+    <AuthScreen>
       <InputBox>
         <TextInput
           label={messages.email}
@@ -107,6 +107,6 @@ export const Login = () => {
         onPress={navigateToSignUp}
         type={ButtonTypes.Secondary}
       />
-    </>
+    </AuthScreen>
   );
 };

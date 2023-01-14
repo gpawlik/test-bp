@@ -6,6 +6,7 @@ import * as ImageManipulator from "expo-image-manipulator";
 import { ImageInfo } from "expo-image-picker/build/ImagePicker.types";
 
 import { formatMessage } from "~/utils/translation";
+import { isWeb } from "~/utils/platform";
 
 import { messages } from "./intl";
 import { ANDROID_DEFAULT_RATIO } from "./constants";
@@ -123,14 +124,16 @@ export const pickFromLibrary = async () => {
 export const pickAndProcessImage = async ({ size }: { size: Size }) => {
   try {
     const result = await pickFromLibrary();
+    console.log({ result });
 
     if (result && !result.cancelled) {
-      const image = await processImage({ image: result, size });
+      const resource = isWeb ? result?.assets[0] : result;
+      const image = await processImage({ image: resource, size });
 
       return image;
     }
   } catch (e) {
-    console.warn("Error picking a processing an image from Library");
+    console.warn("Error picking a processing an image from Library", { e });
     return;
   }
 };

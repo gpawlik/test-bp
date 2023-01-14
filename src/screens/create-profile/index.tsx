@@ -79,7 +79,7 @@ export const CreateProfile = () => {
   const goToStep3 = React.useCallback(() => setStep(3), [setStep]);
 
   return (
-    <>
+    <AuthScreen>
       <Steps step={step} />
 
       {step === 0 ? <BasicInputs onPress={handleStep0} {...data} /> : null}
@@ -111,6 +111,6 @@ export const CreateProfile = () => {
           {...data}
         />
       ) : null}
-    </>
+    </AuthScreen>
   );
 };

@@ -51,7 +51,7 @@ export const SignUp = () => {
   }, [dispatch, email, password]);
 
   return (
-    <>
+    <AuthScreen>
       <InputBox>
         <TextInput
           label={messages.email}
@@ -84,6 +84,6 @@ export const SignUp = () => {
         isDisabled={!isValid}
         isLoading={isLoading}
       />
-    </>
+    </AuthScreen>
   );
 };

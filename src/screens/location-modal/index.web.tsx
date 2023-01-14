@@ -1,9 +1,6 @@
 import * as React from "react";
 import Constants from "expo-constants";
-import {
-  GooglePlacesAutocomplete,
-  AutocompleteRequestType,
-} from "react-native-google-places-autocomplete";
+import Autocomplete from "react-google-autocomplete";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -16,7 +13,6 @@ interface Props {
     params: {
       onPress: (location: string) => void;
       value?: string;
-      type: AutocompleteRequestType;
     };
   };
 }
@@ -24,15 +20,15 @@ interface Props {
 export const LocationModal = React.memo<Props>(
   ({
     route: {
-      params: { onPress, value, type },
+      params: { onPress, value },
     },
   }) => {
     const placeholder = formatMessage(messages.placeholder);
     const navigation = useNavigation();
 
     const handleOnPress = React.useCallback(
-      ({ description }: { description: string }) => {
-        onPress(description);
+      ({ formatted_address }: { formatted_address: string }) => {
+        onPress(formatted_address);
         navigation.goBack();
       },
       [navigation]
@@ -53,16 +49,17 @@ export const LocationModal = React.memo<Props>(
     return (
       <Container>
         <CloseIcon onPress={handleClose} />
-        <GooglePlacesAutocomplete
+        <Autocomplete
+          defaultValue={value}
+          apiKey={Constants?.expoConfig?.extra?.googlePlacesApiKey}
+          onPlaceSelected={handleOnPress}
           placeholder={placeholder}
-          ref={ref}
-          onPress={handleOnPress}
-          query={{
-            key: Constants?.expoConfig?.extra?.googlePlacesApiKey,
-            language: "en",
-            ...{ type },
+          style={{
+            fontSize: 16,
+            padding: 8,
+            borderRadius: 6,
+            border: "none",
           }}
-          enablePoweredByContainer={false}
         />
       </Container>
     );

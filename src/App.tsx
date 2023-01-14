@@ -16,19 +16,17 @@ export function App() {
   return (
     <StoreProvider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <SplashScreen>
-          <SafeAreaProvider>
-            <ThemeProvider theme={theme}>
-              <PaperProvider theme={paperTheme}>
-                <ActionSheetProvider>
-                  <BottomSheetModalProvider>
-                    <Navigation />
-                  </BottomSheetModalProvider>
-                </ActionSheetProvider>
-              </PaperProvider>
-            </ThemeProvider>
-          </SafeAreaProvider>
-        </SplashScreen>
+        <SafeAreaProvider>
+          <ThemeProvider theme={theme}>
+            <PaperProvider theme={paperTheme}>
+              <ActionSheetProvider>
+                <BottomSheetModalProvider>
+                  <Navigation />
+                </BottomSheetModalProvider>
+              </ActionSheetProvider>
+            </PaperProvider>
+          </ThemeProvider>
+        </SafeAreaProvider>
       </PersistGate>
     </StoreProvider>
   );

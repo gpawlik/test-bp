@@ -56,8 +56,6 @@ export const AuthScreen = React.memo<Props>(
 
     return (
       <Container>
-        <Gradient colors={[gradientColors.start1, gradientColors.stop1]} />
-
         <TopContainer hasBackButton={hasBackButton}>
           <BackgroundWrapper isShort={hideSocialButtons}>
             <SvgBackground />

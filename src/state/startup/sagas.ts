@@ -11,7 +11,7 @@ import {
 export function* handleStartLoading(): SagaIterator {
   // Startup requests can be done here before hiding the splash screen
   yield all([
-    take(splashScreenFinishedLoading),
+    // take(splashScreenFinishedLoading),
     take(resourcesFinishedLoading),
   ]);
 

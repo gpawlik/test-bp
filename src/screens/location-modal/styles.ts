@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { StyleSheet } from "react-native";
 import { IconButton } from "react-native-paper";
 
 import { IconSizes } from "~/components/icon";
@@ -17,3 +18,12 @@ export const CloseIcon = styled(IconButton).attrs({
   margin: 0;
   align-self: flex-end;
 `;
+
+export const webStyle = StyleSheet.create({
+  inputBox: {
+    fontSize: 16,
+    padding: 8,
+    borderRadius: 6,
+    border: "none",
+  },
+});

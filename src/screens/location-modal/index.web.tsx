@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import { formatMessage } from "~/utils/translation";
 import { messages } from "./intl";
-import { Container, CloseIcon } from "./styles";
+import { Container, CloseIcon, webStyle } from "./styles";
 
 interface Props {
   route: {
@@ -54,12 +54,7 @@ export const LocationModal = React.memo<Props>(
           apiKey={Constants?.expoConfig?.extra?.googlePlacesApiKey}
           onPlaceSelected={handleOnPress}
           placeholder={placeholder}
-          style={{
-            fontSize: 16,
-            padding: 8,
-            borderRadius: 6,
-            border: "none",
-          }}
+          style={webStyle.inputBox}
         />
       </Container>
     );

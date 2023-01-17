@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Platform } from "react-native";
+import { Platform, View } from "react-native";
 import Constants from "expo-constants";
 import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
@@ -34,7 +34,7 @@ interface Props {
 WebBrowser.maybeCompleteAuthSession();
 
 export const AuthScreen = React.memo<Props>(
-  ({ title, children, hideSocialButtons, hasBackButton }) => {
+  ({ title, children, hideSocialButtons, hasBackButton, id }) => {
     const dispatch = useAppDispatch();
 
     const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
@@ -56,9 +56,11 @@ export const AuthScreen = React.memo<Props>(
 
     return (
       <Container>
+        <Gradient colors={[gradientColors.start1, gradientColors.stop1]} />
+
         <TopContainer hasBackButton={hasBackButton}>
           <BackgroundWrapper isShort={hideSocialButtons}>
-            <SvgBackground />
+            <SvgBackground id={id} />
           </BackgroundWrapper>
           {hasBackButton ? <BackButton hasText /> : null}
 

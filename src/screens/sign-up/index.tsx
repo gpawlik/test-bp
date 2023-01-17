@@ -51,7 +51,7 @@ export const SignUp = () => {
   }, [dispatch, email, password]);
 
   return (
-    <AuthScreen>
+    <AuthScreen id="a">
       <InputBox>
         <TextInput
           label={messages.email}

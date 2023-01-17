@@ -65,7 +65,7 @@ export const Login = () => {
   );
 
   return (
-    <AuthScreen>
+    <AuthScreen id="b">
       <InputBox>
         <TextInput
           label={messages.email}
